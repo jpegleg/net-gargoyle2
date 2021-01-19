@@ -40,7 +40,7 @@ def printdb():
 def insertstat():
   try:
     sqlite_insert_with_param = """INSERT INTO nethash
-                      (date, nhash, phash, nstate)
+                      (date, nhash, phash, nstate, pstate)
                       VALUES (?, ?, ?, ?, ?);"""
     timeslice()
     data_tuple = (timestamp, nhash, phash, nstate, pstate)
