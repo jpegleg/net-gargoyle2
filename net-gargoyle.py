@@ -43,8 +43,7 @@ def insertstat():
                       (date, nhash, phash, nstate)
                       VALUES (?, ?, ?, ?);"""
     timeslice()
-    #data_tuple = (timestamp, nhash, phash, nstate)
-    data_tuple = (timestamp, 'nhash', 'phash', 'nstate')
+    data_tuple = (timestamp, nhash, phash, nstate)
     c.execute(sqlite_insert_with_param, data_tuple)
     conn.commit()
     conn.close()
