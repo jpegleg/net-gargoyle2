@@ -1,2 +1,5 @@
 # net-gargoyle2
-track IP addresses and connection state changes
+
+Track IP addresses and connection state changes along with running processes.
+
+A basic HIDS component and/or honeypot.
