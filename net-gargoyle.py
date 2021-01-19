@@ -20,7 +20,7 @@ def createtable():
   
 def printdb():
   for row in c.execute('SELECT * FROM nethash'):
-  print(row)
+    print(row)
      
 def insertstat():
   try:
