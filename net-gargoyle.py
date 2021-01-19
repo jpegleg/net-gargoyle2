@@ -21,7 +21,7 @@ def interact():
 def createtable():
   interact()
   c.execute('''CREATE TABLE nethash
-            (date text, nhash text, phash text, nstate)''')
+            (date text, nhash text, phash text, nstate, pstate)''')
   conn.commit()
   conn.close()
   timeslice()
@@ -41,9 +41,9 @@ def insertstat():
   try:
     sqlite_insert_with_param = """INSERT INTO nethash
                       (date, nhash, phash, nstate)
-                      VALUES (?, ?, ?, ?);"""
+                      VALUES (?, ?, ?, ?, ?);"""
     timeslice()
-    data_tuple = (timestamp, nhash, phash, nstate)
+    data_tuple = (timestamp, nhash, phash, nstate, pstate)
     c.execute(sqlite_insert_with_param, data_tuple)
     conn.commit()
     conn.close()
