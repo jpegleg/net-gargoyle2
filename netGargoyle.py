@@ -4,6 +4,7 @@ import sqlite3
 import os
 import psutil
 import hashlib
+import string
 
 from subprocess import *
 from datetime import datetime
@@ -29,7 +30,18 @@ def nets():
   nstate = str(nstate)
   global nhash
   nhash = hashlib.sha256(nstate.encode('utf-8')).hexdigest()
-  
+
+def lasthash():
+  global lhash
+  timeslice()
+  print(timestamp, " net-gargoyle2: compare last nhash with current nhash and updatedb if different.")
+  for row in c.execute('select nhash from nethash order by "date text" DESC;'):
+    lhash = row
+  conn.commit()
+  conn.close()
+  timeslice()
+  print(timestamp, " net-gargoyle2: The DB connection is now closed.")
+
 def timeslice():
   global timestamp
   timestamp = datetime.now()
@@ -69,15 +81,15 @@ def insertstat():
                       VALUES (?, ?, ?, ?, ?);"""
     timeslice()
     procs()
-    mets()
+    nets()
     data_tuple = (timestamp, nhash, phash, nstate, pstate)
     c.execute(sqlite_insert_with_param, data_tuple)
     conn.commit()
     conn.close()
 
-  except sqlite.Error as error:
+  except sqlite3.Error as error:
     timeslice()
-    print(timestamp, " net-gargoyle2: Failed to insert into gargoyle.db sqlite t                                                                                                                                                             able nethash with:", error)
+    print(timestamp, " net-gargoyle2: Failed to insert into gargoyle.db sqlite table nethash with:", error)
 
   finally:
     if (conn):
@@ -85,5 +97,19 @@ def insertstat():
       timeslice()
       print(timestamp, " net-gargoyle2: The DB connection is now closed.")
 
-      
-#### WIP
+def checkdiff():
+  interact()
+  lasthash()
+  nets()
+  nhx = str(lhash)
+  nhq = (nhx[2:-3])
+  print('my lhash is', nhq)
+  print('my nhash is', nhash)
+  if (nhq == nhash):
+    timeslice()
+    print(timestamp, ' net-gargoyle2: Network state is the same.')
+  else:
+    timeslice()
+    print(timestamp, ' net-gargoyle2: Found network state change from nhq to nhash. Updating db...')
+    interact()
+    insertstat()
