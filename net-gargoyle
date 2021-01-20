@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+cd /opt/net-gargoyle/workspace/ || exit 1
+source ngvenv/bin/activate
+dbexists=$(ls gargoyle.db)
+if [[ -z "$dbexists" ]]; then
+  python3 netSet.py
+  echo "Created fresh gargoyle.db in $(pwd)"
+fi
+
+nohup python3 netMon.py > /dev/null &
