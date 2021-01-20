@@ -18,6 +18,17 @@ def procs():
   pstate = str(pstate)
   global phash
   phash = hashlib.sha256(pstate.encode('utf-8')).hexdigest()
+
+def nets():
+  global nstate
+  nstate = set()
+  process = subprocess.Popen(('ss', '-tanu'), stdout=subprocess.PIPE)
+  output, error = process.communicate()
+  process.wait()
+  nstate.add(output)
+  nstate = str(nstate)
+  global nhash
+  nhash = hashlib.sha256(nstate.encode('utf-8')).hexdigest()
   
 def timeslice():
   global timestamp
@@ -58,6 +69,7 @@ def insertstat():
                       VALUES (?, ?, ?, ?, ?);"""
     timeslice()
     procs()
+    mets()
     data_tuple = (timestamp, nhash, phash, nstate, pstate)
     c.execute(sqlite_insert_with_param, data_tuple)
     conn.commit()
