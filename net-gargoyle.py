@@ -1,10 +1,24 @@
 import re
 import subprocess
 import sqlite3
+import os
+import psutil
+import hashlib
 
 from subprocess import *
 from datetime import datetime
 
+
+def procs():
+  global pstate
+  pstate = set()
+  for proc in psutil.process_iter(['pid', 'name', 'username']):
+    print(proc)
+    pstate.add(proc)
+  pstate = str(pstate)
+  global phash
+  phash = hashlib.sha256(pstate.encode('utf-8')).hexdigest()
+  
 def timeslice():
   global timestamp
   timestamp = datetime.now()
@@ -43,6 +57,7 @@ def insertstat():
                       (date, nhash, phash, nstate, pstate)
                       VALUES (?, ?, ?, ?, ?);"""
     timeslice()
+    procs()
     data_tuple = (timestamp, nhash, phash, nstate, pstate)
     c.execute(sqlite_insert_with_param, data_tuple)
     conn.commit()
