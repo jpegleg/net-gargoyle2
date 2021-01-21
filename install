@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+buildlinker () {
+  which netstat || exit 1
+  echo "The program ss was not found."
+  echo "Linking /usr/local/bin/ss to $(which netstat)"
+  ln -sf $(which netstat) /usr/local/bin/ss
+}
+
+which ss || buildlinker
+
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
 cp netMon.py /opt/net-gargoyle/workspace/
 cp netSet.py /opt/net-gargoyle/workspace/
