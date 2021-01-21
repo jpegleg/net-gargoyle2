@@ -20,5 +20,7 @@ net-gargoyle
 Review db contents example:
 
 cd /opt/net-gargoyle/workspace
+
 source ngvenv/bin/activate
+
 python3 netCheck.py | less -S
