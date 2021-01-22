@@ -17,6 +17,12 @@ Start it up:
 net-gargoyle
 
 
+Generate a report of unique IPs in the gargoyle.db file:
+
+reportIps
+
+
+
 Review db contents example:
 
 cd /opt/net-gargoyle/workspace
