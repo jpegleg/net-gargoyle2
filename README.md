@@ -1,3 +1,5 @@
+![net-gargoyle2](https://carefuldata.com/images/cdlogo.png)
+
 # net-gargoyle2
 
 Designed for linux, but will work on FreeBSD etc via linking ss to netstat. The install script does that if ss is not found.
