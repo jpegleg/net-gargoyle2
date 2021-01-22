@@ -15,6 +15,8 @@ cp netSet.py /opt/net-gargoyle/workspace/
 cp netCheck.py /opt/net-gargoyle/workspace/
 cp netGargoyle.py /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/bin/
+cp reportIps /usr/local/bin
+chmod +x /usr/local/bin/reportIps
 cp requirements.txt /opt/net-gargoyle/workspace/
 chmod +x /usr/local/bin/net-gargoyle
 cd /opt/net-gargoyle/workspace
