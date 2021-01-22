@@ -7,17 +7,17 @@ A basic HIDS component and/or honeypot that stores data in the working directory
 The intent is to be a minimal set of functions and structures for a transactional-at-change local blockchain, bassed on active network connections and running processes, and hashes of those outputs.
 
 
-###Install:
+#### Install:
 
 sudo bash ./install
 
 
-###Start it up:
+#### Start it up:
 
 net-gargoyle
 
 
-###Generate a report of unique IPs in the gargoyle.db file:
+#### Generate a report of unique IPs in the gargoyle.db file:
 
 reportIps
 
