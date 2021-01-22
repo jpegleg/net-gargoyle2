@@ -10,6 +10,7 @@ ipvsix () {
 
 cd /opt/net-gargoyle/workspace/
 ls gargoyle.db || exit 1
+source ngvenv/bin/activate
 echo "+ STARTING IP REPORT $(date +%Y%m%d%H%M%S)"
 echo "+ Net Gargoyle Report $(sha256sum gargoyle.db)"
 echo "+ executed on $(hostname) as $(whoami)"
