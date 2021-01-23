@@ -2,8 +2,6 @@
 
 # net-gargoyle2
 
-Designed for linux, but will work on FreeBSD etc via linking ss to netstat. The install script does that if ss is not found.
-
 Track IP addresses and connection state changes along with running processes.
 
 A basic HIDS component and/or honeypot that stores data in the working directory of the exeution to gargoyle.db, an sqlite3 database file.
