@@ -29,7 +29,7 @@ reportIps
 
 #### If you have or estblish a hash that is an expected state you want to remember it can go in /etc/normstate.cfg
 
-#### To run with logs, rather than use net-gargoyle, call netmon.py directly with arguments like so:
+#### To run with STDOUT log, rather than use net-gargoyle, call net_mon.py directly with arguments like so:
 
 ```
 cd /opt/net-gargoyle/workspace
