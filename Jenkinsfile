@@ -28,7 +28,7 @@ pipeline {
         stage('Tests') {
             steps {
                 // test the program
-                sh "source /opt/net-gargoyle/workspace/ngrvenv/bin/activate"
+                sh "source /opt/net-gargoyle/workspace/ngvenv/bin/activate"
                 sh "pip3 install bandit"
                 sh "cd /opt/net-gargoyle/workspace"
                 sh "bandit ."
