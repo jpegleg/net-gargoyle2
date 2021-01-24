@@ -42,7 +42,7 @@ pipeline {
         stage('Publish') {
             steps {
                 // make a tarball for pick up
-                sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/net-gargoyle2 && touch /srv/net-gargoyle2_pickup.lock"
+                sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/workspace/jpegleg-repo_net-gargoyle2_main/ && touch /srv/net-gargoyle2_pickup.lock"
                 
                 sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
                 sh "cp /srv/workspace/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
