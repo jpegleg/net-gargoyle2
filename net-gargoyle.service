@@ -1,0 +1,14 @@
+[Unit]
+Description=Track IP addresses and connection state changes along with running processes.
+Documentation=https://github.com/jpegleg/net-gargoyle2
+After=network.target 
+Wants=net-gargoyle.service
+
+[Service]
+ExecStart=/usr/local/bin/net-gargoyle
+KillMode=process
+Restart=on-failure
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
