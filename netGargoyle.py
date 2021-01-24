@@ -14,7 +14,6 @@ def procs():
   global pstate
   pstate = set()
   for proc in psutil.process_iter(['pid', 'name', 'username']):
-    print(proc)
     pstate.add(proc)
   pstate = str(pstate)
   global phash
