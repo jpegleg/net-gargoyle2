@@ -45,8 +45,8 @@ pipeline {
                 sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/workspace/jpegleg-repo_net-gargoyle2_main/ && touch /srv/net-gargoyle2_pickup.lock"
                 
                 sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
-                sh "cp /srv/workspace/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
-                sh "cp /srv/workspace/net-gargoyle2/postinst /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/postinst /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
                 sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
                 sh "cp /usr/local/bin/net-gargoyle /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/net-gargoyle"
                 sh "cp /usr/local/bin/reportIps /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/reportIps"
