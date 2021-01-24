@@ -32,6 +32,7 @@ pipeline {
                 sh "pip3 install psutil"
                 sh "cd /opt/net-gargoyle/workspace"
                 sh "bandit --exit-zero -r . > /srv/net-gargoyle_bandit-report.txt"
+                sh "rm gargoyle.db"
                 sh "python3 net_set.py || exit 1"
                 sh "python3 net_check.py || exit 1"
                 sh "/usr/local/bin/popnet"
