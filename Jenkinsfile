@@ -31,7 +31,7 @@ pipeline {
                 sh "pip3 install bandit"
                 sh "pip3 install psutil"
                 sh "cd /opt/net-gargoyle/workspace"
-                sh "bandit ."
+                sh "bandit -r ."
             }
             post {
                 success {
