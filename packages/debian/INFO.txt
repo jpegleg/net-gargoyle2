@@ -1,5 +1,16 @@
 Debian packages as .deb files for releases are stored in this directory.
 
+RELEASE LIST
+============
+
+v1.0.0
+------------
+NAME: net-gargoyle2-1.0.0.deb
+SHA256 1818ecd76a3c1561ce134050134485dece74c3e74ee78eba3c90ec941346b740  
+SHA1 93c635d78ab762c23cf703c95328bcacc254dcb3  
+MD5 23744f6673e0785a8031a3e0a174fa90
+
+
 To install, example:
 
 sudo dpkg -i net-gargoyle2-1.0.0.deb
