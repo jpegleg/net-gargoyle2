@@ -31,7 +31,11 @@ pipeline {
                 sh "pip3 install bandit"
                 sh "pip3 install psutil"
                 sh "cd /opt/net-gargoyle/workspace"
-                sh "bandit -r ."
+                sh "bandit --exit-zero -r . > /srv/net-gargoyle_bandit-report.txt"
+                sh "python3 net_check.py || exit 1"
+                sh "valx=$(pgrep --full "python3 net_mon.py")"
+                sh "if [ -n "$valx" ]; then pkill -9 "$valx"; else echo pass; fi"
+                sh "net-gargoyle || exit 1"
             }
             post {
                 success {
