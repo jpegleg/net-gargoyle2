@@ -3,8 +3,8 @@ cd /opt/net-gargoyle/workspace/ || exit 1
 source ngvenv/bin/activate
 dbexists=$(ls gargoyle.db)
 if [[ -z "$dbexists" ]]; then
-  python3 netSet.py
+  python3 net_set.py
   echo "Created fresh gargoyle.db in $(pwd)"
 fi
 
-nohup python3 netMon.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET) > /dev/null &
+nohup python3 net_mon.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET) > /dev/null &
