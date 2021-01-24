@@ -1,0 +1,5 @@
+Debian packages as .deb files for releases are stored in this directory.
+
+To install, example:
+
+sudo dpkg -i net-gargoyle2-1.0.0.deb
