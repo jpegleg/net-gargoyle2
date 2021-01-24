@@ -33,7 +33,7 @@ def nets():
   nhash = hashlib.sha256(nstate.encode('utf-8')).hexdigest()
 
 def lasthash():
-    '''Check the last recorded network hash in the sqlite database.'''
+  '''Check the last recorded network hash in the sqlite database.'''
   global lhash
   timeslice()
   print(timestamp, " net-gargoyle2: compare last nhash with current nhash and updatedb if different.")
