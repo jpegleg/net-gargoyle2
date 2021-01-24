@@ -1,4 +1,4 @@
-'''Imports netGargoyle.py directly to use the functions and creates a template class and thread.'''
+'''Imports net_gargoyle.py directly to use the functions and creates a template class and thread.'''
 import threading
 import time
 import sys
