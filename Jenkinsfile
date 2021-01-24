@@ -11,7 +11,7 @@ pipeline {
                 sh "cd /srv; rm -rf net-gargoyle2"
                 sh "rm -rf net-gargoyle2; git clone https://github.com/jpegleg/net-gargoyle2"
                 sh "chmod +x install"
-                sh "rm -f /usr/local/bin/net-gargoyle /usr/local/bin/reportIps /opt/net-gargoyle/workspace/*"
+                sh "rm -rf /usr/local/bin/net-gargoyle /usr/local/bin/reportIps /opt/net-gargoyle/workspace/*"
                 sh "./install"
             }
             post {
