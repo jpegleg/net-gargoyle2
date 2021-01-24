@@ -1,0 +1,9 @@
+Package: net-gargoyle2
+Version: 1.0
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 10M
+Maintainer: https://github.com/jpegleg/
+Description: Linux honeypot/HIDS with python3 sqlite3.
