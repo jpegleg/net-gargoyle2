@@ -1,40 +1,39 @@
 '''Imports netGargoyle.py directly to use the functions and creates a template class and thread.'''
 import threading
 import time
-import sqlite3
 import sys
 
-import netGargoyle as ngr
+import net_gargoyle as ngr
 
-shared_resource = False
-
-lock = threading.Lock()
+LOCK = threading.Lock()
 
 class Gargoyle():
-  def __init__(self,name,interval,normstate):
-    '''Gargoyle class has three properties: name, interval, and normstate.'''
-    self.name = name # gargoyle.db
-    self.interval = interval # 1 is the default, 0 is heavy, and the value is in seconds
-    self.normstate = normstate # 67883f5f0d2945ac53a909bac8fa2ce73029468e07820fd409a5f85ecf2a0924  
-                               # normstate  can be any string but is meant to be a hash.
-                               # normstate is a helper tool and does not impact core functionality
-                               # other than that it is required. Use may be in monitor.
+    '''gargoyle.db object with check interval and reference hash'''
+    def __init__(self, name, interval, norm_state):
+        '''Gargoyle class has three properties: name, interval, and norm_state.'''
+        self.name = name # gargoyle.db
+        self.interval = interval # 1
+        self.norm_state = norm_state # a SHA256 hash reference or other str
 
-  def lasthash(self):
-    '''Check the current network state hash against the previous network state hash.'''
-    while conti > 0:
-      ngr.checkdiff()
-      print ("Normal state is defined by script argument as >>>",self.normstate)
-      shared_resource = True
-      time.sleep(myGargoyle.interval)
+    def lasthash(self):
+        '''Check the current network STATE hash against the previous network STATE hash.'''
+        while True:
+            ngr.checkdiff()
+            print ("Normal STATE is defined by script argument as >>>", self.norm_state)
+            time.sleep(GARGOYLE.interval)
 
-global conti
-conti = 1
+    def makenew(self):
+        '''Make a new database and insert the current state.'''
+        ngr.interact()
+        ngr.createtable()
+        ngr.insertstat()
+        ngr.timeslice()
+        print (ngr.timestamp, " - New nhash table ", self.name, self.interval, self.norm_state)
 
 if __name__ == '__main__':
-  intv = int(sys.argv[1])
-  global norm
-  norm = str(sys.argv[2])
-  myGargoyle = Gargoyle('gargoyle.db',intv,norm)
-  checker = threading.Thread(target=myGargoyle.lasthash(), name='Checker')
-  checker.start()
+    INTV = int(sys.argv[1])
+    global NORM
+    NORM = str(sys.argv[2])
+    GARGOYLE = Gargoyle('gargoyle.db', INTV, NORM)
+    CHECKER = threading.Thread(target=GARGOYLE.lasthash(), name='Checker')
+    CHECKER.start()
