@@ -1,4 +1,4 @@
-import re
+'''linux honeypot/HIDS module with sqlite for linux'''
 import subprocess
 import sqlite3
 import os
@@ -11,6 +11,7 @@ from datetime import datetime
 
 
 def procs():
+  '''Use psutil to do a ps process list of all processes then make a hash of it.'''
   global pstate
   pstate = set()
   for proc in psutil.process_iter(['pid', 'name', 'username']):
@@ -20,6 +21,7 @@ def procs():
   phash = hashlib.sha256(pstate.encode('utf-8')).hexdigest()
 
 def nets():
+  '''Use linux coreutil to list network EST and LISTEN then make a hash of it.'''
   global nstate
   nstate = set()
   process = subprocess.Popen(('ss', '-tanu'), stdout=subprocess.PIPE)
@@ -31,6 +33,7 @@ def nets():
   nhash = hashlib.sha256(nstate.encode('utf-8')).hexdigest()
 
 def lasthash():
+    '''Check the last recorded network hash in the sqlite database.'''
   global lhash
   timeslice()
   print(timestamp, " net-gargoyle2: compare last nhash with current nhash and updatedb if different.")
@@ -42,11 +45,13 @@ def lasthash():
   print(timestamp, " net-gargoyle2: The DB connection is now closed.")
 
 def timeslice():
+  '''Make a global timestamp with datetime module.'''
   global timestamp
   timestamp = datetime.now()
   return(timestamp)
 
 def interact():
+  '''Open up the sqlite db connection.'''
   global conn
   global c
   conn = sqlite3.connect('gargoyle.db')
@@ -55,6 +60,7 @@ def interact():
   print(timestamp, " net-gargoyle2: The DB connection is now open.")
 
 def createtable():
+  '''Create an empty table for the program.'''
   interact()
   c.execute('''CREATE TABLE nethash
             (date text, nhash text, phash text, nstate, pstate)''')
@@ -64,6 +70,7 @@ def createtable():
   print (timestamp, " net-gargoyle2: The DB connection is now closed.")
 
 def printdb():
+  '''Print the entire sqlite db to STDOUT.'''
   timeslice()
   print(timestamp, " net-gargoyle2: Contents of nethash table printing...")
   for row in c.execute('SELECT * FROM nethash'):
@@ -74,6 +81,7 @@ def printdb():
   print(timestamp, " net-gargoyle2: The DB connection is now closed.")
 
 def insertstat():
+  '''Insert the current network and ps data into the database.'''
   try:
     sqlite_insert_with_param = """INSERT INTO nethash
                       (date, nhash, phash, nstate, pstate)
@@ -97,6 +105,7 @@ def insertstat():
       print(timestamp, " net-gargoyle2: The DB connection is now closed.")
 
 def checkdiff():
+  '''Compare the last hash pulled from the DB to the current network state hash.'''
   interact()
   lasthash()
   nets()
