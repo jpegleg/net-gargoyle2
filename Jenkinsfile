@@ -28,8 +28,6 @@ pipeline {
         stage('Tests') {
             steps {
                 // test the program
-                sh "rm -rf /tmp/initvenv && python3 -m venv /tmp/initvenv"
-                sh "source /opt/net-gargoyle/workspace/ngvenv/bin/activate"
                 sh "pip3 install bandit"
                 sh "cd /opt/net-gargoyle/workspace"
                 sh "bandit ."
