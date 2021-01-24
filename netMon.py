@@ -33,3 +33,4 @@ if __name__ == '__main__':
   norm = str(sys.argv[2])
   myGargoyle = Gargoyle('gargoyle.db',intv,norm)
   checker = threading.Thread(target=myGargoyle.lasthash(), name='Checker')
+  checker.start()
