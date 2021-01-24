@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
-cp netMon.py /opt/net-gargoyle/workspace/
-cp netSet.py /opt/net-gargoyle/workspace/
-cp netCheck.py /opt/net-gargoyle/workspace/
-cp netGargoyle.py /opt/net-gargoyle/workspace/
+cp net_mon.py /opt/net-gargoyle/workspace/
+cp net_set.py /opt/net-gargoyle/workspace/
+cp net_check.py /opt/net-gargoyle/workspace/
+cp net_gargoyle.py /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/bin/
 cp reportIps /usr/local/bin
 chmod +x /usr/local/bin/reportIps
@@ -13,4 +13,4 @@ cd /opt/net-gargoyle/workspace
 python3 -m venv ngvenv
 source ngvenv/bin/activate
 pip3 install -r requirements.txt
-ls gargoyle.db || python3 netSet.py
+ls gargoyle.db || python3 net_set.py
