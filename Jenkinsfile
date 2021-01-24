@@ -47,10 +47,10 @@ pipeline {
                 sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
                 sh "cp /srv/workspace/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
                 sh "cp /srv/workspace/net-gargoyle2/postinst /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
-                sh "chmod +x /srv/debbuild/h2b2-2.0.0/DEBIAN/postinst"
-                sh "cp /usr/local/bin/net-gargoyle /srv/debbuild/h2b2-2.0.0/usr/local/bin/net-gargoyle"
-                sh "cp /usr/local/bin/reportIps /srv/debbuild/h2b2-2.0.0/usr/local/bin/reportIps"
-                sh "cp /opt/net-gargoyle/workspace/*.py /srv/debbuild/h2b2-2.0.0/opt/net-gargoyle/workspace/"
+                sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
+                sh "cp /usr/local/bin/net-gargoyle /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/net-gargoyle"
+                sh "cp /usr/local/bin/reportIps /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/reportIps"
+                sh "cp /opt/net-gargoyle/workspace/*.py /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/"
                 sh "cd /srv/debbuild/ && tar czvf net-gargoyle2-1.0.0.tar.gz net-gargoyle2-1.0.0/ && dpkg -b ./net-gargoyle2-1.0.0 ./net-gargoyle2-1.0.0.deb"
             }
             post {
