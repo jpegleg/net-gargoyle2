@@ -21,6 +21,12 @@ sudo bash ./install
 net-gargoyle
 ```
 
+#### Or with systemd:
+
+```
+systemctl start net-gargoyle
+```
+
 #### Generate a report of unique IPs in the gargoyle.db file:
 
 ```
