@@ -13,3 +13,4 @@ cd /opt/net-gargoyle/workspace
 python3 -m venv ngvenv
 source ngvenv/bin/activate
 pip3 install -r requirements.txt
+ls gargoyle.db || python3 netSet.py
