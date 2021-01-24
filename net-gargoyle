@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 cd /opt/net-gargoyle/workspace/ || exit 1
 source ngvenv/bin/activate
 dbexists=$(ls gargoyle.db)
