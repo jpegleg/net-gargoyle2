@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+valx=$(pgrep -f "python3 net_mon.py")
+if [ -n "$valx" ]; then
+  echo "Found $valx to kill."
+  kill -9 "$valx";
+else
+  echo "No process named python3 net_mon.py found, doing nothing.";
+fi
