@@ -36,7 +36,7 @@ cd /opt/net-gargoyle/workspace
 
 source ngvenv/bin/activate
 
-python3 netMon2.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET)
+python3 net_mon.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET)
 ```
 
 ## Review db contents example:
@@ -46,6 +46,6 @@ cd /opt/net-gargoyle/workspace
 
 source ngvenv/bin/activate
 
-python3 netCheck.py | less -S
+python3 net_check.py | less -S
 ```
 
