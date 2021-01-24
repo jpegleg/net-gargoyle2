@@ -8,4 +8,4 @@ if [[ -z "$dbexists" ]]; then
   echo "Created fresh gargoyle.db in $(pwd)"
 fi
 
-nohup python3 netMon.py > /dev/null &
+nohup python3 netMon.py 1 NOTSET > /dev/null &
