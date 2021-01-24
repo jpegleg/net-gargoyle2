@@ -32,6 +32,10 @@ reportIps
 #### To run with logs, rather than use net-gargoyle, call netmon.py directly with arguments like so:
 
 ```
+cd /opt/net-gargoyle/workspace
+
+source ngvenv/bin/activate
+
 python3 netMon2.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET)
 ```
 
