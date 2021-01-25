@@ -40,7 +40,7 @@ pipeline {
             }
             post {
                 success {
-                    sh "pgrep -f "python3 net_mon.py"
+                    sh "pgrep -f 'python3 net_mon.py'"
                 }
             }
         }
