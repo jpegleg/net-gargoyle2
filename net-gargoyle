@@ -6,5 +6,4 @@ if [[ -z "$dbexists" ]]; then
   python3 net_set.py
   echo "Created fresh gargoyle.db in $(pwd)"
 fi
-
 nohup python3 net_mon.py 1 $(cat /etc/normstate.cfg || echo -n NOTSET) > /dev/null &
