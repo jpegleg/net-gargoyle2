@@ -6,12 +6,18 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-e056b9952ced9483eceec8147e694ae75c3f534a1d251701f53f86c3609e7895  /srv/net-gargoyle2-1.0.0.deb
-ed9a237281290130461367060beb027ef537afe7  /srv/net-gargoyle2-1.0.0.deb
-75dfba509e2092d28c15bd44f4ccd83b  /srv/net-gargoyle2-1.0.0.deb
+d7458df3b107bd75b5f7f513a7a526edbf9fdc5eab05ebe0050c52433f9bf069  /srv/net-gargoyle2-1.0.0.deb
+4c4253f130c64993f356e9f77e670d75b8249aef  /srv/net-gargoyle2-1.0.0.deb
+e37f414b8b3fc875a478e26cd952fc97  /srv/net-gargoyle2-1.0.0.deb
 
 
 To install, example:
 
 sudo dpkg -i net-gargoyle2-1.0.0.deb
 
+Or from source:
+
+git clone https://github.com/jpegleg/net-gargoyle2
+cd net-gargoyle2
+chmod +x install
+./install
