@@ -47,16 +47,15 @@ pipeline {
         stage('Publish') {
             steps {
                 // make a tarball for pick up
-                sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/workspace/jpegleg-repo_net-gargoyle2_main/ && touch /srv/net-gargoyle2_pickup.lock"
-                
-                sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
+                sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/workspace/jpegleg-repo_net-gargoyle2_main/ && touch /srv/net-gargoyle2_pickup.lock"              
+                sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/postinst /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
                 sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
-                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/net-gargoyle /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/net-gargoyle"
-                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/reportIps /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/reportIps"
-                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/kill-ngr /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/"
-                sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/usr/local/bin/*"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/net-gargoyle /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/net-gargoyle"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/reportIps /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/reportIps"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/kill-ngr /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/"
+                sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/*"
                 sh "cp /opt/net-gargoyle/workspace/*.py /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/install /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace"
                 sh "cd /srv/debbuild/ && tar czvf net-gargoyle2-1.0.0.tar.gz net-gargoyle2-1.0.0/ && dpkg -b ./net-gargoyle2-1.0.0 ./net-gargoyle2-1.0.0.deb"
