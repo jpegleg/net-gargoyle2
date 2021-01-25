@@ -11,13 +11,13 @@ pipeline {
                 sh "cd /srv; rm -rf net-gargoyle2"
                 sh "rm -rf net-gargoyle2; git clone https://github.com/jpegleg/net-gargoyle2"
                 sh "chmod +x install"
-                sh "rm -rf /usr/local/bin/net-gargoyle /usr/local/bin/reportIps /opt/net-gargoyle/workspace/*"
+                sh "rm -rf /usr/local/sbin/net-gargoyle /usr/local/sbin/reportIps /opt/net-gargoyle/workspace/*"
                 sh "./install"
             }
             post {
                 success {
-                    sh "ls /usr/local/bin/net-gargoyle"
-                    sh "ls /usr/local/bin/reportIps"
+                    sh "ls /usr/local/sbin/net-gargoyle"
+                    sh "ls /usr/local/sbin/reportIps"
                     sh "ls /opt/net-gargoyle/workspace/net_gargoyle.py"
                     sh "ls /opt/net-gargoyle/workspace/net_mon.py"
                     sh "ls /opt/net-gargoyle/workspace/net_check.py"
