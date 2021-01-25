@@ -4,8 +4,11 @@ cp net_mon.py /opt/net-gargoyle/workspace/
 cp net_set.py /opt/net-gargoyle/workspace/
 cp net_check.py /opt/net-gargoyle/workspace/
 cp net_gargoyle.py /opt/net-gargoyle/workspace/
+cp net-gargoyle.service /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/bin/
 cp reportIps /usr/local/bin
+cp kill-ngr /usr/local/bin/
+chmod +x /usr/local/bin/kill-ngr
 chmod +x /usr/local/bin/reportIps
 cp requirements.txt /opt/net-gargoyle/workspace/
 chmod +x /usr/local/bin/net-gargoyle
@@ -15,4 +18,4 @@ source ngvenv/bin/activate
 pip3 install -r requirements.txt
 ls gargoyle.db || python3 net_set.py
 cp net-gargoyle.service /usr/lib/systemd/system/net-gargoyle.service
-systemctl enable net-gargoyle
+systemctl enable net-gargoyle && rm -f net-gargoyle.service install
