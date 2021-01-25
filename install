@@ -7,8 +7,8 @@ cp net_gargoyle.py /opt/net-gargoyle/workspace/
 cp net-gargoyle.service /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/sbin/
 cp reportIps /usr/local/sbin
-cp kill-ngr /usr/local/sbin/
-chmod +x /usr/local/sbin/kill-ngr
+cp kill-netg /usr/local/sbin/
+chmod +x /usr/local/sbin/kill-netg
 chmod +x /usr/local/sbin/reportIps
 chmod +x /usr/local/sbin/net-gargoyle
 cp requirements.txt /opt/net-gargoyle/workspace/
