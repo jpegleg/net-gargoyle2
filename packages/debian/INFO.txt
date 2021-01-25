@@ -6,11 +6,12 @@ RELEASE LIST
 v1.0.0
 ------------
 NAME: net-gargoyle2-1.0.0.deb
-SHA256: 8ac1297c4ddde587385662a7006c52f59f6c392c3c35153f1c66635e13341b44
-SHA1: f4b45e056208efcdf1159aceb96da01622c3226a
-MD5: 1e1530613d33b8dac33bdb133b11b76c
-
+SHA256: 00da048287f831810a5f27df4fd19b1aa1de11b6a34396b696d88c869178a7fa
+SHA1: a1656760406ea16e88e605d1c8808ed493fdf0ba
+MD5: 50e6836a8eb2204d8c2ecec326de914b
+net-gargoyle2
 
 To install, example:
 
 sudo dpkg -i net-gargoyle2-1.0.0.deb
+
