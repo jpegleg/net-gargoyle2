@@ -3,7 +3,7 @@ valx=$(pgrep -f "python3 net_mon.py")
 if [ -n "$valx" ]; then
   echo "$valx" | while read line; do
     "Found $line to kill...";
-    kill -9 "$line";
+    kill -9 "$line" 2>/dev/null;
   done
 else
   echo "No processes matched python3 net_mon.py, nothing to kill.";
