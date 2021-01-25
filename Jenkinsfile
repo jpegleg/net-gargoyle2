@@ -74,7 +74,7 @@ pipeline {
             }
             post {
                 success {
-                    sh "ls -larth /usr/local/bin/net-gargoyle || exit 1"
+                    sh "ls -larth /usr/local/sbin/net-gargoyle || exit 1"
                     sh "echo net-gargoyle2 > /srv/ngr.sums.txt"
                     sh "sha256sum /srv/net-gargoyle2-1.0.0.deb >> /srv/ngr.sums.txt"
                     sh "sha1sum /srv/net-gargoyle2-1.0.0.deb >> /srv/ngr.sums.txt"
