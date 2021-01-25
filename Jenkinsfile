@@ -48,7 +48,7 @@ pipeline {
             steps {
                 // make a tarball for pick up
                 sh "tar czvf /srv/net-gargoyle2_build.tgz /srv/workspace/jpegleg-repo_net-gargoyle2_main/ && touch /srv/net-gargoyle2_pickup.lock"              
-                sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/ >/dev/null"
+                sh "mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/; mkdir -p /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/BUILD >/dev/null"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/net-gargoyle2.control /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/control"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/postinst /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
                 sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/DEBIAN/postinst"
@@ -56,7 +56,7 @@ pipeline {
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/reportIps /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/reportIps"
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/kill-ngr /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/"
                 sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/*"
-                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/* /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/"
+                sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/* /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/BUILD/"
                 sh "cd /srv/debbuild/ && tar czvf net-gargoyle2-1.0.0.tar.gz net-gargoyle2-1.0.0/ && dpkg -b ./net-gargoyle2-1.0.0 ./net-gargoyle2-1.0.0.deb"
             }
             post {
