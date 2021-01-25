@@ -27,10 +27,10 @@ net-gargoyle
 systemctl start net-gargoyle
 ```
 
-#### Currently systemd can't stop net-gargoyle, you will have to kill it. You can use kill-ngr:
+#### Currently systemd can't stop net-gargoyle, you will have to kill it. You can use kill-netg:
 
 ```
-kill-ngr
+kill-netg
 ```
 
 #### Generate a report of unique IPs in the gargoyle.db file:
