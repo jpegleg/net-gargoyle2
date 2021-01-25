@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
-cp net_mon.py /opt/net-gargoyle/workspace/
-cp net_set.py /opt/net-gargoyle/workspace/
-cp net_check.py /opt/net-gargoyle/workspace/
-cp net_gargoyle.py /opt/net-gargoyle/workspace/
+cp *.py /opt/net-gargoyle/workspace/
 cp net-gargoyle.service /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/sbin/
 cp reportIps /usr/local/sbin
