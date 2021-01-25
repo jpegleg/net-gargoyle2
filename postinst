@@ -5,5 +5,5 @@ cd /opt/net-gargoyle/workspace/BUILD/
 ./install
 chmod +x /usr/local/sbin/net-gargoyle
 chmod +x /usr/local/sbin/reportIps
-chmod +x /usr/local/sbin/kill-ngr
+chmod +x /usr/local/sbin/kill-netg
 exit 0
