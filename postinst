@@ -1,6 +1,8 @@
 #!/bin/sh
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
 chmod +x /opt/net-gargoyle/workspace/install
+cd /opt/net-gargoyle/workspace/BUILD/
+./install
 chmod +x /usr/local/sbin/net-gargoyle
 chmod +x /usr/local/sbin/reportIps
 chmod +x /usr/local/sbin/kill-ngr
