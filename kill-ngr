@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
 valx=$(pgrep -f "python3 net_mon.py")
-
 if [ -n "$valx" ]; then
   echo "$valx" | while read line; do
     kill -9 "$line";
