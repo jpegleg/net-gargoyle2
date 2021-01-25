@@ -6,9 +6,9 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-b8a0da4c208c2ed9c6b6edff60ffa07b7acbaa5289fee3beb9fa751114123a75  /srv/net-gargoyle2-1.0.0.deb
-f4e355475004a7f1ffcc722d81db7bdc20708c06  /srv/net-gargoyle2-1.0.0.deb
-c14347e24e7e077332b8284fbe940a9f  /srv/net-gargoyle2-1.0.0.deb
+df6f18d938d8da32ca31fbf0f5bbc43f18837ce02df8de433fba7d8d6b4984de  /srv/net-gargoyle2-1.0.0.deb
+aa792303e2b6e774f8012a2f19759992ee761c4e  /srv/net-gargoyle2-1.0.0.deb
+783165cb9669bc9fdce0e44d9ce539f7  /srv/net-gargoyle2-1.0.0.deb
 
 
 To install, example:
