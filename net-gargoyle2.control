@@ -4,6 +4,6 @@ Section: custom
 Priority: optional
 Architecture: all
 Essential: no
-Installed-Size: 28K
+Installed-Size: 10M
 Maintainer: https://github.com/jpegleg/
 Description: Linux honeypot/HIDS with python3 sqlite3.
