@@ -5,7 +5,7 @@ After=network.target
 Wants=net-gargoyle.service
 
 [Service]
-ExecStart=/usr/local/bin/net-gargoyle
+ExecStart=/usr/local/sbin/net-gargoyle
 KillMode=process
 Restart=on-failure
 RestartSec=42s
