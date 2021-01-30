@@ -16,17 +16,17 @@ yum install -y python3-pip
 %build
 %install
 mkdir -p $RPM_BUILD_ROOT/usr/local/bin/
-install -m 0755 SOURCES/net-gargoyle2/net-gargoyle $RPM_BUILD_ROOT/usr/local/bin/
-install -m 0755 SOURCES/net-gargoyle2reportIps $RPM_BUILD_ROOT/usr/local/bin/
-install -m 0755 SOURCES/net-gargoyle2/kill-netg $RPM_BUILD_ROOT/usr/local/bin/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net-gargoyle $RPM_BUILD_ROOT/usr/local/bin/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2reportIps $RPM_BUILD_ROOT/usr/local/bin/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/kill-netg $RPM_BUILD_ROOT/usr/local/bin/
 mkdir -p $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-install -m 0755 SOURCES/net-gargoyle2/net_gargoyle.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-install -m 0755 SOURCES/net-gargoyle2/net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-install -m 0755 SOURCES/net-gargoyle2/net_check.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-install -m 0755 SOURCES/net-gargoyle2/net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-install -m 0755 SOURCES/net-gargoyle2/requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net_gargoyle.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net_check.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+install -m 0755 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 mkdir -p $RPM_BUILD_ROOT/etc/systemd/system/multi-user.target.wants/
-install -m 0777 SOURCES/net-gargoyle2/net-gargoyle.service $RPM_BUILD_ROOT/etc/systemd/system/multi-user.target.wants/
+install -m 0777 SOURCES/srv/workspace/net-g-rpmbuild/net-gargoyle2/net-gargoyle.service $RPM_BUILD_ROOT/etc/systemd/system/multi-user.target.wants/
 
 %files
 /usr/local/sbin/net-gargoyle
