@@ -12,6 +12,7 @@ cp requirements.txt /opt/net-gargoyle/workspace/
 cd /opt/net-gargoyle/workspace
 python3 -m venv ngvenv
 source ngvenv/bin/activate
+pip3 install --upgrade pip
 pip3 install -r requirements.txt
 ls gargoyle.db || python3 net_set.py
 cp net-gargoyle.service /usr/lib/systemd/system/net-gargoyle.service
