@@ -37,7 +37,7 @@ install -m 0777 SOURCES/net-gargoyle.service $RPM_BUILD_ROOT/etc/systemd/system/
 /opt/net-gargoyle/workspace/net_mon.py
 /opt/net-gargoyle/workspace/net_set.py
 /opt/net-gargoyle/workspace/requirements.txt
-/etc/systemd/system/multi-user.target.wants/net-gargoyle.servic
+/etc/systemd/system/multi-user.target.wants/net-gargoyle.service
 
 $post
 cd /opt/net-gargoyle/workspace
