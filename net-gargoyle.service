@@ -1,5 +1,5 @@
 [Unit]
-Description=net-gargoyle2 honeypot HIDS to track IP addresses and connection state changes along with running processes.
+Description=net-gargoyle2 honeypot
 Documentation=https://github.com/jpegleg/net-gargoyle2
 After=network.target 
 Wants=net-gargoyle.service
