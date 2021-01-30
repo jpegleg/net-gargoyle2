@@ -27,7 +27,13 @@ net-gargoyle
 systemctl start net-gargoyle
 ```
 
-#### Currently systemd can't stop net-gargoyle, you will have to kill it. You can use kill-netg:
+#### And stop it with systemd:
+
+```
+systemctl stop net-gargoyle
+```
+
+#### If you ar enot using systemd, you can stop it will kill-netg:
 
 ```
 kill-netg
