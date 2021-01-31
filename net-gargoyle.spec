@@ -54,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 /opt/net-gargoyle/workspace/BUILD/kill-netg
 
 %changelog
-* Sat January 30 2021
+* Sat Jan 30 2021 Keegan Bowen  1.0.0
 - Autobuilding RPMs for net-gargoyle2 packaging
