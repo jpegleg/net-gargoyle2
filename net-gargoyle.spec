@@ -25,9 +25,9 @@ RPM_BUILD_ROOT=/srv/rpmbuild/BUILD/
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/local/sbin/
 mkdir -p $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
-cp net-gargoyle $RPM_BUILD_ROOT/usr/local/sbin/
-cp reportIps $RPM_BUILD_ROOT/usr/local/sbin/
-cp kill-netg $RPM_BUILD_ROOT/usr/local/sbin/
+install -m 0755 net-gargoyle $RPM_BUILD_ROOT/usr/local/sbin/
+install -m 0755 reportIps $RPM_BUILD_ROOT/usr/local/sbin/
+install -m 0755 kill-netg $RPM_BUILD_ROOT/usr/local/sbin/
 cp net_gargoyle.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 cp net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 cp net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
