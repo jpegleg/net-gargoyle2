@@ -1,4 +1,4 @@
-Name:           Net Gargoyle
+Name:           net-gargoyle
 Version:        1
 Release:        0
 Summary:        Linux honeypot/HIDS with python3 sqlite3.
