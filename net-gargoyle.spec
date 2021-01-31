@@ -7,7 +7,7 @@ BuildArch:      noarch
 Group:          jpegleg
 License:        MIT
 URL:            https://github.com/jpegleg/net-gargoyle2
-Source0:        /srv/net-gargoyle.tgz
+Source0:        /srv/net_gargoyle.tgz
 
 #BuildRequires:  
 Requires:       bash
