@@ -42,7 +42,6 @@ cp net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 
 %clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 /usr/local/sbin/net-gargoyle
