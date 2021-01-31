@@ -1,0 +1,23 @@
+RHEL/CentOS/yum packages as .rpm files for releases are stored in this directory.
+
+RELEASE LIST
+============
+
+v1.0.0
+------------
+checksums:
+1c1359e58114c3cc069207fedf18865e7214a790ccaf394af60ef11d027dae6c  net-gargoyle-1.0.0-0.noarch.rpm
+a280aa5bf35780442a9d0d46e4c48eef2623066e  /net-gargoyle-1.0.0-0.noarch.rpm
+24f40e5622a6aa7d51e388a3b71ca11d  /noarch/net-gargoyle-1.0.0-0.noarch.rpm
+
+
+To install, example:
+
+sudo yum install net-gargoyle2-1.0.0.0.rpm
+
+Or from source:
+
+git clone https://github.com/jpegleg/net-gargoyle2
+cd net-gargoyle2
+chmod +x install
+./install
