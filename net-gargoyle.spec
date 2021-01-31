@@ -9,10 +9,9 @@ License:        MIT
 URL:            https://github.com/jpegleg/net-gargoyle2
 Source0:        /srv/net_gargoyle.tgz
 
-#BuildRequires:  
+#BuildRequires:
 Requires:       bash
 Requires:       python3-pip
-Requires:       python3-venv
 
 %description
 Linux honeypot/HIDS with python3 sqlite3.
@@ -20,25 +19,29 @@ Linux honeypot/HIDS with python3 sqlite3.
 %prep
 %setup -q
 %build
+RPM_BUILD_ROOT=/srv/rpmbuild/BUILD/
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/local/sbin/
-mkdir -p $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD
+mkdir -p $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp net-gargoyle $RPM_BUILD_ROOT/usr/local/sbin/
 cp reportIps $RPM_BUILD_ROOT/usr/local/sbin/
 cp kill-netg $RPM_BUILD_ROOT/usr/local/sbin/
 cp net_gargoyle.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
-cp set_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+cp net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 cp net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+cp net_check.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
+cp install $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 cp install $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp net-gargoyle $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp reportIps $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
-cp kill-netg$RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
-cp net_gargoyle.py$RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
-cp set_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp kill-netg $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp net_gargoyle.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp net_check.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 
 %clean
@@ -62,10 +65,22 @@ cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 /opt/net-gargoyle/workspace/net_check.py
 /opt/net-gargoyle/workspace/install
 /opt/net-gargoyle/workspace/requirements.txt
-/opt/net-gargoyle/workspace/net-gargoyle
-/opt/net-gargoyle/workspace/reportIps
-/opt/net-gargoyle/workspace/kill-netg
-
+/opt/net-gargoyle/workspace/BUILD/net_check.pyc
+/opt/net-gargoyle/workspace/BUILD/net_check.pyo
+/opt/net-gargoyle/workspace/BUILD/net_gargoyle.pyc
+/opt/net-gargoyle/workspace/BUILD/net_gargoyle.pyo
+/opt/net-gargoyle/workspace/BUILD/net_mon.pyc
+/opt/net-gargoyle/workspace/BUILD/net_mon.pyo
+/opt/net-gargoyle/workspace/BUILD/net_set.pyc
+/opt/net-gargoyle/workspace/BUILD/net_set.pyo
+/opt/net-gargoyle/workspace/net_check.pyc
+/opt/net-gargoyle/workspace/net_check.pyo
+/opt/net-gargoyle/workspace/net_gargoyle.pyc
+/opt/net-gargoyle/workspace/net_gargoyle.pyo
+/opt/net-gargoyle/workspace/net_mon.pyc
+/opt/net-gargoyle/workspace/net_mon.pyo
+/opt/net-gargoyle/workspace/net_set.pyc
+/opt/net-gargoyle/workspace/net_set.pyo
 
 %changelog
 * Sat Jan 30 2021 Keegan Bowen  1.0.0
