@@ -6,9 +6,9 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-01d4d5d7ffd7015733e55c3cf9564e302ddaac25d13c1c22cef82cb0c293be07  net-gargoyle-1.0.0.rpm
-6cc02ba2b5d5a51c892c1495d7c66142001a284e  net-gargoyle-1.0.0.rpm
-e909af38ce58a5987960a41beaf69f3c  net-gargoyle-1.0.0.rpm
+82618be001fb3ce5bc1a3b3f3d1ead3f7ad2bae645beec3d09f5f30bff223179  net-gargoyle-1.0.0.rpm
+336aa52d90dae26a9266534ad8e4bf06a79574f4  net-gargoyle-1.0.0.rpm
+e2656ef0cc5620a106a0361654acc4fc  net-gargoyle-1.0.0.rpm
 
 
 To install, example:
