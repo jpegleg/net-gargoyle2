@@ -3,7 +3,7 @@ import threading
 import time
 import sys
 
-import net_gargoyle as ngr
+import net_gargoyle as netg
 
 LOCK = threading.Lock()
 
@@ -24,11 +24,11 @@ class Gargoyle():
 
     def makenew(self):
         '''Make a new database and insert the current state.'''
-        ngr.interact()
-        ngr.createtable()
-        ngr.insertstat()
-        ngr.timeslice()
-        print (ngr.timestamp, " - New nhash table ", self.name, self.interval, self.norm_state)
+        netg.interact()
+        netg.createtable()
+        netg.insertstat()
+        netg.timeslice()
+        print (netg.timestamp, " - New nhash table ", self.name, self.interval, self.norm_state)
 
 if __name__ == '__main__':
     INTV = int(sys.argv[1])
