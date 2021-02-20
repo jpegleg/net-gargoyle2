@@ -18,7 +18,7 @@ class Gargoyle():
     def lasthash(self):
         '''Check the current network STATE hash against the previous network STATE hash.'''
         while True:
-            ngr.checkdiff()
+            netg.checkdiff()
             print ("Normal STATE is defined by script argument as >>>", self.norm_state)
             time.sleep(GARGOYLE.interval)
 
