@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+rm -rf  testvenv
+python3 -m venv testvenv
+source testvenv/bin/activate
+pip install -r requirements.txt
+
+runthrough () {
+  rm -f gargoyle.db
+  python3 gargoyle_regression_test.py || exit 1
+}
+
+checklines () {
+  lines=$(wc -l runthrough.out | cut -d' ' -f1)
+  echo $lines
+  if [ "$lines" == '15' ]; then
+    echo "The expected 15 lines were found."
+  else
+    echo "Wrong number of lines found in runthrough.out"
+    echo "Check for problems..."
+    echo "Line count is $lines for runthrough.out"
+    echo "Expected number is 15 lines."
+    exit 1
+  fi
+}
+
+checkvalz () {
+  opened=$(grep CONNection runthrough.out | wc -l | cut -d' ' -f1)
+  echo $opened
+  if [ "$opened" == '9' ]; then
+    echo "The expected number of CONNection strings was found in runthrough.out"
+  else
+    echo "An unexpected number $opened count of the string CONNection was found                                                                                                                                                              in runthrough.out"
+    exit 1
+  fi
+}
+
+runthrough > runthrough.out || exit 1
+checklines
+checkvalz
+
