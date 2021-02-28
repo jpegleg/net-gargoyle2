@@ -90,6 +90,4 @@ cp run_regression_tests $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 
 %changelog
 * Sat Jan 30 2021 Keegan Bowen  1.0.0 
-- Autobuilding RPMs for net-gargoyle2 packaging
-* Sun 28 Feb 2021 Keegan Bowen 1.0.0 (rolling)
-- Added in regression tests
+- Autobuilding RPMs for net-gargoyle2 packaging rolling release
