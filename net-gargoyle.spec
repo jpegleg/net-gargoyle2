@@ -50,6 +50,10 @@ cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 /usr/local/sbin/net-gargoyle
 /usr/local/sbin/reportIps
 /usr/local/sbin/kill-netg
+/opt/net-gargoyle/workspace/gargoyle_regression_test.py
+/opt/net-gargoyle/workspace/run_regression_tests
+/opt/net-gargoyle/workspace/BUILD/run_regression_tests
+/opt/net-gargoyle/workspace/BUILD/gargoyle_regression_test.py
 /opt/net-gargoyle/workspace/BUILD/net_gargoyle.py
 /opt/net-gargoyle/workspace/BUILD/net_mon.py
 /opt/net-gargoyle/workspace/BUILD/net_set.py
@@ -83,5 +87,7 @@ cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 /opt/net-gargoyle/workspace/net_set.pyo
 
 %changelog
-* Sat Jan 30 2021 Keegan Bowen  1.0.0
+* Sat Jan 30 2021 Keegan Bowen  1.0.0 
 - Autobuilding RPMs for net-gargoyle2 packaging
+* Sun 28 Feb 2021 Keegan Bowen 1.0.0 (rolling)
+- Added in regression tests
