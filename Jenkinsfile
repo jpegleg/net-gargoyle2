@@ -38,7 +38,7 @@ pipeline {
                 // popnet is the same as kill-netg but in the /usr/local/bin for the jenkins build agent
                 sh "/usr/local/bin/popnet"
                 sh "net-gargoyle || exit 1"
-                sh "run_regression_tests || exit 1"
+                sh "chmod +x run_resgression_tests && ./run_regression_tests || exit 1"
             }
             post {
                 success {
