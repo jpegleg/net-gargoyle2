@@ -54,6 +54,10 @@ cp run_regression_tests $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/
 /usr/local/sbin/net-gargoyle
 /usr/local/sbin/reportIps
 /usr/local/sbin/kill-netg
+/opt/net-gargoyle/workspace/BUILD/gargoyle_regression_test.pyc
+/opt/net-gargoyle/workspace/BUILD/gargoyle_regression_test.pyo
+/opt/net-gargoyle/workspace/gargoyle_regression_test.pyc
+/opt/net-gargoyle/workspace/gargoyle_regression_test.pyo
 /opt/net-gargoyle/workspace/gargoyle_regression_test.py
 /opt/net-gargoyle/workspace/run_regression_tests
 /opt/net-gargoyle/workspace/BUILD/run_regression_tests
