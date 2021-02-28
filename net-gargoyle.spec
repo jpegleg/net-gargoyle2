@@ -43,6 +43,8 @@ cp net_set.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp net_mon.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp net_check.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 cp requirements.txt $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp gargoyle_regression_test.py $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
+cp run_regression_tests $RPM_BUILD_ROOT/opt/net-gargoyle/workspace/BUILD/
 
 %clean
 
