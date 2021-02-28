@@ -9,6 +9,8 @@ chmod +x /usr/local/sbin/kill-netg
 chmod +x /usr/local/sbin/reportIps
 chmod +x /usr/local/sbin/net-gargoyle
 cp requirements.txt /opt/net-gargoyle/workspace/
+cp run_regression_tests /opt/net-gargoyle/workspace/
+cp gargoyle_regression_test.py /opt/net-gargoyle/workspace/
 cd /opt/net-gargoyle/workspace
 python3 -m venv ngvenv
 source ngvenv/bin/activate
