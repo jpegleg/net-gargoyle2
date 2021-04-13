@@ -2,6 +2,7 @@
 import threading
 import time
 import sys
+import os
 
 import net_gargoyle as netg
 
@@ -24,16 +25,35 @@ class Gargoyle():
 
     def makenew(self):
         '''Make a new database and insert the current state.'''
-        netg.interact()
         netg.createtable()
+        netg.checkdiff()
         netg.insertstat()
         netg.timeslice()
-        print (netg.timestamp, " - New nhash table ", self.name, self.interval, self.norm_state)
+        print (netg.timeslice(), " - New nhash table ", self.name, self.interval, self.norm_state)
 
 if __name__ == '__main__':
     INTV = int(sys.argv[1])
     global NORM
     NORM = str(sys.argv[2])
     GARGOYLE = Gargoyle('gargoyle.db', INTV, NORM)
-    CHECKER = threading.Thread(target=GARGOYLE.lasthash(), name='Checker')
-    CHECKER.start()
+    EXISTS = os.path.isfile('/opt/net-gargoyle/workspace/gargoyle.db')
+
+    if EXISTS:
+        if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size == 0:
+            netg.createtable()
+            netg.interact()
+            netg.insertstat()
+        if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= 2666000000:
+            os.popen('/opt/net-gargoyle/workspace/gargoyle.db /opt/net-gargoyle/workspace/gargoyle_previous.db')
+            os.remove("/opt/net-gargoyle/workspace/gargoyle.db")
+            netg.createtable()
+            netg.interact()
+            netg.insertstat()
+        CHECKER = threading.Thread(target=GARGOYLE.lasthash(), name='Checker')
+        CHECKER.start()
+    else:
+        netg.createtable()
+        netg.interact()
+        netg.insertstat()
+        CHECKER = threading.Thread(target=GARGOYLE.lasthash(), name='Checker')
+        CHECKER.start()
