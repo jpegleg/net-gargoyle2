@@ -44,7 +44,6 @@ if __name__ == '__main__':
             netg.interact()
             netg.insertstat()
         if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= 2666000000:
-            os.popen('/opt/net-gargoyle/workspace/gargoyle.db /opt/net-gargoyle/workspace/gargoyle_previous.db')
             os.remove("/opt/net-gargoyle/workspace/gargoyle.db")
             netg.createtable()
             netg.interact()
