@@ -104,8 +104,20 @@ def checkdiff():
     interact()
     lasthash()
     nets()
-    nhx = str(LHASH)
-    nhq = (nhx[2:-3])
+    try:
+        nhx = str(LHASH)
+        
+    except (ValueError, RuntimeError, TypeError, NameError):
+        timeslice()
+        print(TIMESTAMP, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
+    
+    try:
+        nhq = (nhx[2:-3])
+        
+    except (ValueError, RuntimeError, TypeError, NameError):
+        timeslice()
+        print(TIMESTAMP, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
+        
     print('my LHASH is', nhq)
     print('my NHASH is', NHASH)
     if (nhq == NHASH):
