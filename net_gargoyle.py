@@ -116,3 +116,9 @@ def checkdiff():
         print(TIMESTAMP, ' net-gargoyle2: Network change detected >>> Updating db...')
         interact()
         insertstat()
+
+if __name__ == '__main__':
+    '''Print some helpful messages if executed instead of imported.'''
+    print("This script is not intended to be invoked directly.")
+    print("Instead, use net_mon.py or another script that imports this file, net_gargoyle.py")
+    print("Or use systemd: systemctl start net-gargle:")
