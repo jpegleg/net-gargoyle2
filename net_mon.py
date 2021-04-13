@@ -23,14 +23,6 @@ class Gargoyle():
             print ("Normal STATE is defined by script argument as >>>", self.norm_state)
             time.sleep(GARGOYLE.interval)
 
-    def makenew(self):
-        '''Make a new database and insert the current state.'''
-        netg.createtable()
-        netg.checkdiff()
-        netg.insertstat()
-        netg.timeslice()
-        print (netg.timeslice(), " - New nhash table ", self.name, self.interval, self.norm_state)
-
 if __name__ == '__main__':
     INTV = int(sys.argv[1])
     global NORM
