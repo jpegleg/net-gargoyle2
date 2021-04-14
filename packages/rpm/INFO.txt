@@ -6,14 +6,14 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-8a7113bb153eb2741d3228c4a224aeb9338904ff31826c4e32989883b8cc3c1d  /srv/net-gargoyle-1.0.0.rpm
-94be5408bddb3a9cfd47e874e006782fe8d6193f  /srv/net-gargoyle-1.0.0.rpm
-6c5a616ce69781adfc532abd6db12c2b  /srv/net-gargoyle-1.0.0.rpm
+b5b64da4f71809e01e712bcc91c9a5a0760f215d546c634dc570f06fbcc3460d  net-gargoyle-1.0.0.rpm
+90b3aee517a93400cd9b6b650bfdafe3688e3bf2  /net-gargoyle-1.0.0.rpm
+1db3b7baff063c4e20a1cb46606b37ac  net-gargoyle-1.0.0.rpm
 
 
 To install, example:
 
-sudo yum install net-gargoyle2-1.0.0.0.rpm
+sudo yum install net-gargoyle-1.0.0.rpm
 
 Or from source:
 
