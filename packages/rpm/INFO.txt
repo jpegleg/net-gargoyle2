@@ -6,14 +6,21 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-b5b64da4f71809e01e712bcc91c9a5a0760f215d546c634dc570f06fbcc3460d  net-gargoyle-1.0.0.rpm
-90b3aee517a93400cd9b6b650bfdafe3688e3bf2  /net-gargoyle-1.0.0.rpm
-1db3b7baff063c4e20a1cb46606b37ac  net-gargoyle-1.0.0.rpm
+e7c4ccd5aaa4f1941b097361f004e2b42831391b3889dce5567c4ebe2a8dffb5 /net-gargoyle-1.0.0.rpm
+0ca20f30177c97ef07790a61d523daddcdbcb19a net-gargoyle-1.0.0.rpm
+cfc10e3f499628942b0b786c6beeee14 net-gargoyle-1.0.0.rpm
 
 
 To install, example:
 
 sudo yum install net-gargoyle-1.0.0.rpm
+
+# The current rpm doesn't actually install but sets up the dirs and files.
+# I'll fix that, but for now after installing the rpm:
+# cd /opt/net-gargoyle/workspace/BUILD
+# chmod +x install
+# ./install
+#
 
 Or from source:
 
