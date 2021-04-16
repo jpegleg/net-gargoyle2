@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
+if [ -e /opt/net-gargoyle/workspace/gargoyle.json ]; then
+  echo " Existing config found! /opt/net-gargoyle/workspace/gargoyle.json      "
+  exit 0
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
+echo "{" > /opt/net-gargoyle/workspace/gargoyle.json
+echo "  \"MAXSTARTSIZE\": \"500000000\"," >>  /opt/net-gargoyle/workspace/gargoyle.json
+echo "  \"MAXRUNSIZE\": \"500000000\"" >>  /opt/net-gargoyle/workspace/gargoyle.json
+echo "}" >> /opt/net-gargoyle/workspace/gargoyle.json
 cp *.py /opt/net-gargoyle/workspace/
 cp net-gargoyle.service /opt/net-gargoyle/workspace/
 cp net-gargoyle /usr/local/sbin/
