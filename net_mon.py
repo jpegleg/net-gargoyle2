@@ -1,12 +1,17 @@
-'''Imports net_gargoyle.py directly to use the functions and creates a template class and thread.'''
-import threading
 import time
+import json
 import sys
 import os
 
 import net_gargoyle as netg
 
 LOCK = threading.Lock()
+
+with open("./gargoyle.json", "r") as f:
+    gconfig = json.load(f)
+
+maxStartSize = int(gconfig["MAXSTARTSIZE"])
+maxRunSize = int(gconfig["MAXRUNSIZE"])
 
 class Gargoyle():
     '''gargoyle.db object with check interval and reference hash'''
@@ -21,6 +26,15 @@ class Gargoyle():
         while True:
             netg.checkdiff()
             print ("Normal STATE is defined by script argument as >>>", self.norm_state)
+            if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= maxRunSize:
+                TIMESTAMP = netg.timeslice()
+                print (TIMESTAMP," net-gargoyle2: Max run size detected, rotating gargoyle.db")
+                backup = 'cp /opt/net-gargoyle/workspace/gargoyle.db /opt/net-gargoyle/g_$(date +%Y%m%d%H%M%S).db'
+                os.system(backup)
+                os.remove("/opt/net-gargoyle/workspace/gargoyle.db")
+                netg.createtable()
+                netg.interact()
+                netg.insertstat()
             time.sleep(GARGOYLE.interval)
 
 if __name__ == '__main__':
@@ -35,7 +49,7 @@ if __name__ == '__main__':
             netg.createtable()
             netg.interact()
             netg.insertstat()
-        if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= 500000000:
+        if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= maxStartSize:
             os.remove("/opt/net-gargoyle/workspace/gargoyle.db")
             netg.createtable()
             netg.interact()
