@@ -80,3 +80,6 @@ Example default gargoyle.json set to 500 MB for both values:
   "MAXRUNSIZE": "500000000"
 }
 ```
+
+When the gargoyle.db is rotated at start up or run time because it hit a limit, a copy is made in /opt/net-gargoyle/
+The files start with g_ and contain a timestamp.
