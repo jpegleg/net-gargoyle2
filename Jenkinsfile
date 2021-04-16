@@ -33,11 +33,11 @@ pipeline {
                 sh "cd /opt/net-gargoyle/workspace"
                 sh "bandit --exit-zero -r . > /srv/net-gargoyle_bandit-report.txt"
                 sh "rm /opt/net-gargoyle/workspace/gargoyle.db"
-                sh "python3 net_set.py || exit 1"
+                // sh "python3 net_set.py || exit 1"
                 sh "python3 net_check.py || exit 1"
                 // popnet is the same as kill-netg but in the /usr/local/bin for the jenkins build agent
                 sh "/usr/local/bin/popnet"
-                sh "net-gargoyle || exit 1"
+                sh "/usr/local/sbin/net-gargoyle || exit 1"
             }
             post {
                 success {
