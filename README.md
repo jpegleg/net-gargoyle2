@@ -69,6 +69,14 @@ python3 net_check.py | less -S
 
 ## New features and updates
 
-4/13/21 - Added in handling for empty gargoyle.db into net_mon.py and removed the check in the wrapper net-gargoyle. Additionally if the gargoyle.db is larger than 500 MB during start up, the database will be deleted. This max size detecting during start up can be adjusted in net_mon.py on line 38. I may move control over that to a config setting.
+The file $PWD/gargoyle.json for net_mon.py contains byte size integers for configuring the maximum size of the gargoyle.db during runtime
+and during startup.
 
-I have prototype scripts that are doing gargoyle.db backups as well as capturing pcap data. Those prototypes are not yet in this repo, but shall be added in the future!
+Example default gargoyle.json set to 500 MB for both values:
+
+```
+{
+  "MAXSTARTSIZE": "500000000",
+  "MAXRUNSIZE": "500000000"
+}
+```
