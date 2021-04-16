@@ -58,7 +58,7 @@ pipeline {
                 sh "cp /srv/workspace/jpegleg-repo_net-gargoyle2_main/kill-netg /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/"
                 sh "chmod +x /srv/debbuild/net-gargoyle2-1.0.0/usr/local/sbin/*"
                 sh "cp -r /srv/workspace/jpegleg-repo_net-gargoyle2_main/* /srv/debbuild/net-gargoyle2-1.0.0/opt/net-gargoyle/workspace/BUILD/"
-                sh "cd /srv/debbuild/ && rm -rf net-gargoyle2/.git/ && tar czvf net-gargoyle2-1.0.0.tar.gz net-gargoyle2-1.0.0/ && dpkg -b ./net-gargoyle2-1.0.0 ./net-gargoyle2-1.0.0.deb"
+                sh "cd /srv/debbuild/ && rm -rf net-gargoyle2/.git/ && rm -rf packages && rm -rf __pycache__ && tar czvf net-gargoyle2-1.0.0.tar.gz net-gargoyle2-1.0.0/ && dpkg -b ./net-gargoyle2-1.0.0 ./net-gargoyle2-1.0.0.deb"
             }
             post {
                 success {
