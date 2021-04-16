@@ -1,6 +1,6 @@
 '''net_set.py imports functions from net_gargoyle.py to create a new gargoyle.db and nethash table then insert current state.'''
-import net_gargoyle as ngr
+import net_gargoyle as netg
 
-ngr.createtable()
-ngr.interact()
-ngr.insertstat()
+netg.createtable()
+netg.interact()
+netg.insertstat()
