@@ -2,6 +2,9 @@
 if [ -e /opt/net-gargoyle/workspace/gargoyle.json ]; then
   echo "Existing config found at /opt/net-gargoyle/workspace/gargoyle.json"
   exit 0
+else
+  echo "Installing net-gargoyle"
+fi
 mkdir -p /opt/net-gargoyle/workspace/ 2>/dev/null
 echo "{" > /opt/net-gargoyle/workspace/gargoyle.json
 echo "  \"MAXSTARTSIZE\": \"500000000\"," >>  /opt/net-gargoyle/workspace/gargoyle.json
