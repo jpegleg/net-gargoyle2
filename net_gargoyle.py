@@ -9,6 +9,10 @@ def procs():
     '''Use psutil to do a ps process list of all processes then make a hash of it.'''
     global PSTATE
     PSTATE = set()
+    # This stores every running process in a single field in the db.
+    # Pehaps ugly to extract from, but comprehensive.
+    # This may be the most interesting part of net-gargoyle.
+    # But feel free to change it to be more specific etc.
     for proc in psutil.process_iter(['pid', 'name', 'username']):
         PSTATE.add(proc)
     PSTATE = str(PSTATE)
@@ -19,6 +23,14 @@ def nets():
     '''Use linux coreutil to list network EST and LISTEN then make a hash of it.'''
     global NSTATE
     NSTATE = set()
+    # Change this to whatever network data or program you wish.
+    # What is used here is for capturing all UDP and TCP connections.
+    # It is subprocess.Popen, you can switch it out, perhaps use 
+    # the os module (import it first) then call os.system.
+    # You might, for example, use what I have commented here 
+    # to just capture LISTEN connections:
+    #  process = 'ss -tanu | grep LISTEN | awk \'{ print $5 }\'''
+    #  NSTATE = str(os.system(process))
     process = subprocess.Popen(('ss', '-tanu'), stdout=subprocess.PIPE)
     output = process.communicate()
     process.wait()
