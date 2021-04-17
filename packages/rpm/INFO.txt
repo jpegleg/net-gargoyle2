@@ -15,12 +15,9 @@ To install, example:
 
 sudo yum install net-gargoyle-1.0.0.rpm
 
-# The current rpm doesn't actually install but sets up the dirs and files.
-# I'll fix that, but for now after installing the rpm:
-# cd /opt/net-gargoyle/workspace/BUILD
-# chmod +x install
-# ./install
-#
+# The current rpm doesn't install as fully as the .deb or install script.
+# It does setup the workspace and additional the rpm sets a BUILD dir
+# and includes compiled bytecode net-gargoyle files as well.
 
 Or from source:
 
