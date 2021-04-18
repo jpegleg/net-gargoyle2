@@ -1,5 +1,10 @@
 ![net-gargoyle2](https://carefuldata.com/images/cdlogo.png)
 
+# honey-cycle for net-gargoyle2
+
+Also see https://github.com/jpegleg/honey-cycle
+The honey-cycle daemon cleans up after net-gargoyle2 and also collects pcaps.
+
 # net-gargoyle2
 
 Track IP addresses and connection state changes along with running processes.
