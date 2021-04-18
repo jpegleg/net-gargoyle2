@@ -6,11 +6,9 @@ RELEASE LIST
 v1.0.0
 ------------
 checksums:
-056e3eeca91b2dffd27cdd420b136c23002191066f07380733ce96488fc980e4  net-gargoyle2-1.0.0.deb
-b9952e39aaaf70515e491dd97f46b6f4ba239b87  net-gargoyle2-1.0.0.deb
-7cd73e7e99cf30dabefec0e0c2631b6a  net-gargoyle2-1.0.0.deb
-
-
+ebf9b4702493b76fbb99d7d5990ce3af49c623f31a6ddd92dee6eaa687963325  net-gargoyle2-1.0.0.deb
+72a554f06ff05e336dd4cf0fa305233c92a08fb3  net-gargoyle2-1.0.0.deb
+fb09095e27732cb94d100acf171c8623  net-gargoyle2-1.0.0.deb
 
 
 To install, example:
@@ -23,3 +21,5 @@ git clone https://github.com/jpegleg/net-gargoyle2
 cd net-gargoyle2
 chmod +x install
 ./install
+
+Or install with honey-cycle, see https://github.com/jpegleg/honey-cycle
