@@ -51,6 +51,8 @@ if __name__ == '__main__':
             netg.interact()
             netg.insertstat()
         if os.stat("/opt/net-gargoyle/workspace/gargoyle.db").st_size >= maxStartSize:
+            backup = 'cp /opt/net-gargoyle/workspace/gargoyle.db /opt/net-gargoyle/g_$(date +%Y%m%d%H%M%S).db'
+            os.system(backup)
             os.remove("/opt/net-gargoyle/workspace/gargoyle.db")
             netg.createtable()
             netg.interact()
