@@ -25,9 +25,9 @@ def nets():
     NSTATE = set()
     # Change this to whatever network data or program you wish.
     # What is used here is for capturing all UDP and TCP connections.
-    # It is subprocess.Popen, you can switch it out, perhaps use 
+    # It is subprocess.Popen, you can switch it out, perhaps use
     # the os module (import it first) then call os.system.
-    # You might, for example, use what I have commented here 
+    # You might, for example, use what I have commented here
     # to just capture LISTEN connections:
     #  process = 'ss -tanu | grep LISTEN | awk \'{ print $5 }\'''
     #  NSTATE = str(os.system(process))
@@ -39,17 +39,17 @@ def nets():
     global NHASH
     NHASH = hashlib.sha256(NSTATE.encode('utf-8')).hexdigest()
 
-def lasthash():
+def lasthash(TXID):
     '''Check the last recorded network hash in the sqlite database.'''
     timeslice()
-    print(TIMESTAMP, " compare last NHASH and NHASH and updatedb if different.")
+    print(TIMESTAMP, TXID, " compare last NHASH and NHASH and updatedb if different.")
     for row in C.execute('select NHASH from nethash order by "date text" DESC;'):
         global LHASH
         LHASH = row
     CONN.commit()
     CONN.close()
     timeslice()
-    print(TIMESTAMP, " net-gargoyle2: The DB CONNection is now closed.")
+    print(TIMESTAMP, TXID, " net-gargoyle2: The DB CONNection is now closed.")
 
 def timeslice():
     '''Make a global TIMESTAMP with datetime module.'''
@@ -57,37 +57,37 @@ def timeslice():
     TIMESTAMP = datetime.now()
     return(TIMESTAMP)
 
-def interact():
+def interact(TXID):
     '''Open up the sqlite db CONNection.'''
     global CONN
     CONN = sqlite3.connect('gargoyle.db')
     global C
     C = CONN.cursor()
     timeslice()
-    print(TIMESTAMP, " net-gargoyle2: The DB CONNection is now open.")
+    print(TIMESTAMP, TXID, " net-gargoyle2: The DB CONNection is now open.")
 
-def createtable():
+def createtable(TXID):
     '''Create an empty table for the program.'''
-    interact()
+    interact(TXID)
     C.execute('''CREATE TABLE nethash
                         (date text, NHASH text, PHASH text, NSTATE, PSTATE)''')
     CONN.commit()
     CONN.close()
     timeslice()
-    print (TIMESTAMP, " net-gargoyle2: The DB CONNection is now closed.")
+    print (TIMESTAMP, TXID, " net-gargoyle2: The DB CONNection is now closed.")
 
-def printdb():
+def printdb(TXID):
     '''Print the entire sqlite db to STDOUT.'''
     timeslice()
-    print(TIMESTAMP, " net-gargoyle2: Contents of nethash table printing...")
+    print(TIMESTAMP, TXID, " net-gargoyle2: Contents of nethash table printing...")
     for row in C.execute('SELECT * FROM nethash'):
         print(row)
     CONN.commit()
     CONN.close()
     timeslice()
-    print(TIMESTAMP, " net-gargoyle2: The DB CONNection is now closed.")
+    print(TIMESTAMP, TXID, " net-gargoyle2: The DB CONNection is now closed.")
 
-def insertstat():
+def insertstat(TXID):
     '''Insert the current network and ps data into the database.'''
     try:
         sqlite_insert_with_param = """INSERT INTO nethash
@@ -103,46 +103,46 @@ def insertstat():
 
     except sqlite3.Error as error:
         timeslice()
-        print(TIMESTAMP, " net-gargoyle2: Failed to insert into gargoyle.db NHASH table:", error)
+        print(TIMESTAMP, TXID, " net-gargoyle2: Failed to insert into gargoyle.db NHASH table:", error)
 
     finally:
         if (CONN):
             CONN.close()
             timeslice()
-            print(TIMESTAMP, " net-gargoyle2: The DB CONNection is now closed.")
+            print(TIMESTAMP, TXID, " net-gargoyle2: The DB CONNection is now closed.")
 
-def checkdiff():
+def checkdiff(TXID):
     '''Compare the last hash pulled from the DB to the current network state hash.'''
-    interact()
-    lasthash()
+    interact(TXID)
+    lasthash(TXID)
     nets()
     try:
         nhx = str(LHASH)
-        
+
     except (ValueError, RuntimeError, TypeError, NameError) as error:
         timeslice()
-        print(TIMESTAMP, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
-    
+        print(TIMESTAMP, TXID, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
+
     try:
         nhq = (nhx[2:-3])
-        
+
     except (ValueError, RuntimeError, TypeError, NameError) as error:
         timeslice()
-        print(TIMESTAMP, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
-        
-    print('my LHASH is', nhq)
-    print('my NHASH is', NHASH)
+        print(TIMESTAMP, TXID, " net-gargoyle2: Check gargoyle.db for a valid last entry, LHASH.",error)
+    retime = timeslice()
+    print(retime, TXID, 'my LHASH is', nhq)
+    print(retime, TXID, 'my NHASH is', NHASH)
     if (nhq == NHASH):
         timeslice()
-        print(TIMESTAMP, ' net-gargoyle2: Network state is the same <<< No action.')
+        print(TIMESTAMP, TXID, ' net-gargoyle2: Network state is the same <<< No action.')
     else:
         timeslice()
-        print(TIMESTAMP, ' net-gargoyle2: Network change detected >>> Updating db...')
-        interact()
-        insertstat()
+        print(TIMESTAMP, TXID, ' net-gargoyle2: Network change detected >>> Updating db...')
+        interact(TXID)
+        insertstat(TXID)
 
 if __name__ == '__main__':
     '''Print some helpful messages if executed instead of imported.'''
     print("This script is not intended to be invoked directly.")
     print("Instead, use net_mon.py or another script that imports this file, net_gargoyle.py")
-    print("Or use systemd: systemctl start net-gargoyle")
+    print("Or use systemd: systemctl start net-gargle")
