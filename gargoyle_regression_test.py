@@ -2,7 +2,7 @@
 import threading
 import time
 import sys
-
+import uuid
 import net_gargoyle as netg
 
 class RealRun():
@@ -15,13 +15,14 @@ class RealRun():
 
     def testrun(self):
         '''finally just run each core function'''
-        netg.createtable()
-        netg.interact()
-        netg.insertstat()
-        netg.interact()
-        netg.checkdiff()
-        netg.interact()
-        netg.printdb()
+        txid = uuid.uuid4()
+        netg.createtable(txid)
+        netg.interact(txid)
+        netg.insertstat(txid)
+        netg.interact(txid)
+        netg.checkdiff(txid)
+        netg.interact(txid)
+        netg.printdb(txid)
 
 
 if __name__ == '__main__':
