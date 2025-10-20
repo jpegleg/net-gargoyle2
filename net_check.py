@@ -2,7 +2,7 @@
 import net_gargoyle as netg
 
 global TXID
-TXID = uuid.uuidv4()
+TXID = uuid.uuid4()
 
 netg.interact()
 netg.printdb(TXID)
