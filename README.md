@@ -11,7 +11,7 @@ Track IP addresses and connection state changes along with running processes.
 
 A basic HIDS component and/or honeypot that stores data in the working directory of the exeution to gargoyle.db, an sqlite3 database file.
 
-The intent is to be a minimal set of functions and structures for a transactional-at-change local blockchain, bassed on active network connections and running processes, and hashes of those outputs.
+The intent is to be a minimal set of functions and structures for a daemon that stores active network connections and running processes, and hashes of those outputs.
 
 
 #### Install:
@@ -38,7 +38,7 @@ systemctl start net-gargoyle
 systemctl stop net-gargoyle
 ```
 
-#### If you ar enot using systemd, you can stop it will kill-netg:
+#### If you are not using systemd, you can stop it will kill-netg:
 
 ```
 kill-netg
@@ -50,7 +50,7 @@ kill-netg
 reportIps
 ```
 
-#### If you have or estblish a hash that is an expected state you want to remember it can go in /etc/normstate.cfg
+#### If you have or establish a hash that is an expected state you want to remember it can go in /etc/normstate.cfg
 
 #### To run with STDOUT log, rather than use net-gargoyle, call net_mon.py directly with arguments like so:
 
